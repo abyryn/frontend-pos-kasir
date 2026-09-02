@@ -20,17 +20,16 @@ const formatRp = (v: number) => `Rp ${v.toLocaleString('id-ID')}`;
 type PaymentMethodConfig = {
   method: PaymentMethod;
   label: string;
-  icon: string;
   color: string;
 };
 
 const PAYMENT_METHODS: PaymentMethodConfig[] = [
-  { method: 'CASH',     label: 'Tunai',   icon: '💵', color: Colors.success },
-  { method: 'QRIS',     label: 'QRIS',    icon: '📱', color: Colors.primary },
-  { method: 'DEBIT',    label: 'Debit',   icon: '💳', color: Colors.sky700 },
-  { method: 'CREDIT',   label: 'Kredit',  icon: '🏦', color: Colors.warning },
-  { method: 'EWALLET',  label: 'E-Wallet',icon: '💰', color: Colors.info },
-  { method: 'TRANSFER', label: 'Transfer',icon: '🔄', color: Colors.gray600 },
+  { method: 'CASH',     label: 'Tunai',   color: Colors.success },
+  { method: 'QRIS',     label: 'QRIS',    color: Colors.primary },
+  { method: 'DEBIT',    label: 'Debit',   color: Colors.sky700 },
+  { method: 'CREDIT',   label: 'Kredit',  color: Colors.warning },
+  { method: 'EWALLET',  label: 'E-Wallet',color: Colors.info },
+  { method: 'TRANSFER', label: 'Transfer',color: Colors.gray600 },
 ];
 
 const QUICK_CASH = [50000, 100000, 200000, 500000];
@@ -196,7 +195,6 @@ export const PaymentScreen: React.FC<Props> = ({ onSuccess, onBack }) => {
             {/* Customer */}
             {customer && (
               <View style={styles.memberChip}>
-                <Text style={styles.memberEmoji}>👤</Text>
                 <Text style={styles.memberName}>{customer.name}</Text>
                 <Badge label={customer.memberLevel} variant="info" />
               </View>
@@ -253,7 +251,6 @@ export const PaymentScreen: React.FC<Props> = ({ onSuccess, onBack }) => {
                         ]}
                         onPress={() => handleMethodSelect(m.method, index)}
                       >
-                        <Text style={styles.methodIcon}>{m.icon}</Text>
                         <Text style={[
                           styles.methodChipText,
                           payment.method === m.method && { color: m.color, fontWeight: FontWeight.bold },

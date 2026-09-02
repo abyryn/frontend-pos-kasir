@@ -19,7 +19,7 @@ interface TransactionState {
   getTransactionById: (id: string) => Transaction | undefined;
 }
 
-export const useTransactionStore = create<TransactionState>((set, get) => ({
+export const useTransactionStore = create<TransactionState>()((set, get) => ({
   transactions: MOCK_TRANSACTIONS,
   voidRequests: [],
   returnRequests: [],

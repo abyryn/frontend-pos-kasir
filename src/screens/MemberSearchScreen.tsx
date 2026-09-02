@@ -21,10 +21,6 @@ const LEVEL_COLORS: Record<string, { bg: string; text: string }> = {
   BRONZE:   { bg: '#FFF7ED', text: '#C2410C' },
 };
 
-const LEVEL_ICONS: Record<string, string> = {
-  PLATINUM: '💎', GOLD: '🥇', SILVER: '🥈', BRONZE: '🥉',
-};
-
 export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }) => {
   const [search, setSearch] = useState('');
   const { setCustomer, customer: activeCustomer } = useCartStore();
@@ -70,11 +66,10 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
           <View style={styles.memberNameRow}>
             <Text style={styles.memberName}>{item.name}</Text>
             <View style={[styles.levelBadge, { backgroundColor: lc.bg }]}>
-              <Text style={{ fontSize: 12 }}>{LEVEL_ICONS[item.memberLevel]}</Text>
               <Text style={[styles.levelText, { color: lc.text }]}>{item.memberLevel}</Text>
             </View>
           </View>
-          <Text style={styles.memberPhone}>📱 {item.phone}</Text>
+          <Text style={styles.memberPhone}>{item.phone}</Text>
           <View style={styles.memberStats}>
             <View style={styles.statChip}>
               <Text style={styles.statValue}>{item.point.toLocaleString('id-ID')}</Text>
@@ -93,7 +88,7 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
         <View style={styles.memberAction}>
           {isActive ? (
             <View style={styles.activeBadge}>
-              <Text style={styles.activeBadgeText}>✓ Aktif</Text>
+              <Text style={styles.activeBadgeText}>Aktif</Text>
             </View>
           ) : (
             <View style={styles.selectBtn}>
@@ -128,7 +123,6 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
       {/* Active member banner */}
       {activeCustomer && (
         <View style={styles.activeBanner}>
-          <Text style={styles.activeBannerIcon}>👤</Text>
           <View style={{ flex: 1 }}>
             <Text style={styles.activeBannerName}>{activeCustomer.name}</Text>
             <Text style={styles.activeBannerInfo}>
@@ -143,7 +137,6 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
       {/* Search */}
       <View style={styles.searchBar}>
         <View style={styles.searchWrap}>
-          <Text>🔍</Text>
           <TextInput
             style={styles.searchInput}
             value={search}
@@ -158,7 +151,6 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
       {/* Results */}
       {filtered.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>👤</Text>
           <Text style={styles.emptyTitle}>Member tidak ditemukan</Text>
           <Text style={styles.emptyDesc}>Coba dengan nama atau nomor HP yang berbeda.</Text>
         </View>
@@ -177,7 +169,7 @@ export const MemberSearchScreen: React.FC<Props> = ({ onBack, onMemberSelected }
       {/* Voucher detail for active member */}
       {activeCustomer && activeCustomer.vouchers.length > 0 && (
         <View style={styles.voucherPanel}>
-          <Text style={styles.voucherTitle}>🎟 Voucher Tersedia</Text>
+          <Text style={styles.voucherTitle}>Voucher Tersedia</Text>
           {activeCustomer.vouchers.map((v) => (
             <View key={v.id} style={styles.voucherRow}>
               <View>

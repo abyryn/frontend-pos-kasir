@@ -196,8 +196,8 @@ export const ClosingShiftScreen: React.FC<Props> = ({ onShiftClosed, onBack }) =
                 </Text>
                 <Text style={styles.varianceHint}>
                   {Math.abs(variance) <= VARIANCE_THRESHOLD
-                    ? '✓ Selisih dalam batas wajar'
-                    : `⚠️ Selisih melebihi threshold Rp ${VARIANCE_THRESHOLD.toLocaleString('id-ID')}`
+                    ? 'Selisih dalam batas wajar'
+                    : `Selisih melebihi batas toleransi Rp ${VARIANCE_THRESHOLD.toLocaleString('id-ID')}`
                   }
                 </Text>
               </View>
@@ -206,7 +206,7 @@ export const ClosingShiftScreen: React.FC<Props> = ({ onShiftClosed, onBack }) =
             {/* Manager alert */}
             {hasVarianceAlert && (
               <View style={styles.alertBox}>
-                <Text style={styles.alertTitle}>⚠️ Perlu Review Manager</Text>
+                <Text style={styles.alertTitle}>Perlu Review Manager</Text>
                 <Text style={styles.alertText}>
                   Selisih kas melebihi batas. Transaksi closing akan membutuhkan review oleh manager.
                 </Text>

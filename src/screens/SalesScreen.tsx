@@ -116,7 +116,7 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
           {/* Search bar */}
           <View style={styles.searchRow}>
             <View style={styles.searchWrap}>
-              <Text style={styles.searchIcon}>🔍</Text>
+              <Text style={styles.searchIcon}>•</Text>
               <TextInput
                 ref={searchRef}
                 style={styles.searchInput}
@@ -138,11 +138,9 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
 
             {/* Action shortcuts */}
             <TouchableOpacity style={styles.shortcutBtn} onPress={() => onMenuPress('member')}>
-              <Text style={styles.shortcutEmoji}>👤</Text>
               <Text style={styles.shortcutLabel}>Member</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.shortcutBtn} onPress={() => onMenuPress('recall')}>
-              <Text style={styles.shortcutEmoji}>📋</Text>
               <Text style={styles.shortcutLabel}>Recall</Text>
             </TouchableOpacity>
           </View>
@@ -170,7 +168,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
           {/* Product grid */}
           {filteredProducts.length === 0 ? (
             <View style={styles.emptyState}>
-              <Text style={styles.emptyEmoji}>📦</Text>
               <Text style={styles.emptyTitle}>Produk tidak ditemukan</Text>
               <Text style={styles.emptyDesc}>
                 {search ? `Tidak ada produk untuk "${search}"` : 'Tidak ada produk di kategori ini.'}
@@ -215,7 +212,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
           {/* Customer info */}
           {customer && (
             <View style={styles.customerBanner}>
-              <Text style={styles.customerEmoji}>👤</Text>
               <View style={{ flex: 1 }}>
                 <Text style={styles.customerName}>{customer.name}</Text>
                 <Text style={styles.customerLevel}>{customer.memberLevel} • {customer.point} poin</Text>
@@ -230,9 +226,8 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
           <ScrollView style={styles.cartItems} showsVerticalScrollIndicator={false}>
             {items.length === 0 ? (
               <View style={styles.cartEmpty}>
-                <Text style={styles.cartEmptyEmoji}>🛒</Text>
                 <Text style={styles.cartEmptyText}>Keranjang kosong</Text>
-                <Text style={styles.cartEmptySubText}>Scan produk atau pilih dari grid</Text>
+                <Text style={styles.cartEmptySubText}>Scan produk atau pilih dari daftar produk</Text>
               </View>
             ) : (
               items.map((item) => (
@@ -259,7 +254,7 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
               <View style={styles.totalRow}>
                 <TouchableOpacity onPress={() => setShowDiscount(true)}>
                   <Text style={[styles.totalKey, { color: Colors.success }]}>
-                    Diskon {discountType === 'percentage' ? `(${discount}%)` : ''} ✎
+                    Diskon {discountType === 'percentage' ? `(${discount}%)` : ''} [Ubah]
                   </Text>
                 </TouchableOpacity>
                 <Text style={[styles.totalVal, { color: Colors.success }]}>
@@ -283,7 +278,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
               onPress={() => setShowDiscount(true)}
               disabled={items.length === 0}
             >
-              <Text style={styles.actionSecIcon}>%</Text>
               <Text style={styles.actionSecLabel}>Diskon</Text>
             </TouchableOpacity>
 
@@ -292,7 +286,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
                 style={styles.actionSecBtn}
                 onPress={() => onMenuPress('void')}
               >
-                <Text style={styles.actionSecIcon}>⊘</Text>
                 <Text style={styles.actionSecLabel}>Void</Text>
               </TouchableOpacity>
             )}
@@ -302,7 +295,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
                 style={styles.actionSecBtn}
                 onPress={() => onMenuPress('return')}
               >
-                <Text style={styles.actionSecIcon}>↩</Text>
                 <Text style={styles.actionSecLabel}>Retur</Text>
               </TouchableOpacity>
             )}
@@ -311,7 +303,6 @@ export const SalesScreen: React.FC<Props> = ({ onPayPress, onHoldPress, onMenuPr
               style={styles.actionSecBtn}
               onPress={handleHold}
             >
-              <Text style={styles.actionSecIcon}>⏸</Text>
               <Text style={styles.actionSecLabel}>Hold</Text>
             </TouchableOpacity>
           </View>

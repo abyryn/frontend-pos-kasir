@@ -35,7 +35,7 @@ const calculateSubtotal = (item: CartItem): number => {
   return Math.max(0, base - disc);
 };
 
-export const useCartStore = create<CartState>((set, get) => ({
+export const useCartStore = create<CartState>()((set, get) => ({
   items: [],
   customer: null,
   holdTransactions: [],

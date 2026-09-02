@@ -44,7 +44,7 @@ export const HoldRecallScreen: React.FC<Props> = ({ onBack, onRecall }) => {
         {/* Info */}
         <View style={styles.holdInfo}>
           <Text style={styles.holdLabel}>{item.label}</Text>
-          <Text style={styles.holdTime}>⏱ {formatTime(item.createdAt)}</Text>
+          <Text style={styles.holdTime}>{formatTime(item.createdAt)}</Text>
 
           {/* Item preview */}
           <View style={styles.holdItems}>
@@ -60,7 +60,7 @@ export const HoldRecallScreen: React.FC<Props> = ({ onBack, onRecall }) => {
 
           {item.customer && (
             <View style={styles.holdCustomer}>
-              <Text style={styles.holdCustomerText}>👤 {item.customer.name}</Text>
+              <Text style={styles.holdCustomerText}>Member: {item.customer.name}</Text>
             </View>
           )}
         </View>
@@ -106,7 +106,6 @@ export const HoldRecallScreen: React.FC<Props> = ({ onBack, onRecall }) => {
 
       {holdTransactions.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>⏸</Text>
           <Text style={styles.emptyTitle}>Tidak ada transaksi yang di-hold</Text>
           <Text style={styles.emptyDesc}>
             Gunakan tombol Hold di layar utama untuk menunda transaksi yang sedang berjalan.
@@ -129,7 +128,7 @@ export const HoldRecallScreen: React.FC<Props> = ({ onBack, onRecall }) => {
       {hasActiveCart && holdTransactions.length > 0 && (
         <View style={styles.warningBanner}>
           <Text style={styles.warningText}>
-            ⚠️ Anda memiliki keranjang aktif. Memanggil transaksi hold akan menggantikan keranjang saat ini.
+            Perhatian: Anda memiliki keranjang aktif. Memanggil transaksi hold akan menggantikan keranjang saat ini.
           </Text>
         </View>
       )}

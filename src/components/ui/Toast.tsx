@@ -13,10 +13,10 @@ interface ToastProps {
 }
 
 const typeStyles: Record<ToastType, { bg: string; text: string; icon: string }> = {
-  success: { bg: Colors.success,  text: Colors.white, icon: '✓' },
-  error:   { bg: Colors.danger,   text: Colors.white, icon: '✕' },
-  warning: { bg: Colors.warning,  text: Colors.white, icon: '⚠' },
-  info:    { bg: Colors.primary,  text: Colors.white, icon: 'ℹ' },
+  success: { bg: Colors.success,  text: Colors.white, icon: '•' },
+  error:   { bg: Colors.danger,   text: Colors.white, icon: '!' },
+  warning: { bg: Colors.warning,  text: Colors.white, icon: '!' },
+  info:    { bg: Colors.primary,  text: Colors.white, icon: 'i' },
 };
 
 export const Toast: React.FC<ToastProps> = ({

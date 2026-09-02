@@ -113,7 +113,7 @@ export const CashManagementScreen: React.FC<Props> = ({ onBack }) => {
       <Modal
         visible={showModal}
         onClose={() => setShowModal(false)}
-        title={modalType === 'CASH_IN' ? '💰 Cash In' : '💸 Cash Out'}
+        title={modalType === 'CASH_IN' ? 'Cash In' : 'Cash Out'}
         width={440}
         footer={
           <>
@@ -236,7 +236,6 @@ export const CashManagementScreen: React.FC<Props> = ({ onBack }) => {
 
       {shiftMovements.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>💰</Text>
           <Text style={styles.emptyTitle}>Belum ada pergerakan kas</Text>
           <Text style={styles.emptyDesc}>Cash In / Out akan muncul di sini.</Text>
         </View>

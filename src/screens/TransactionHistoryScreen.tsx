@@ -102,9 +102,9 @@ export const TransactionHistoryScreen: React.FC<Props> = ({
         <Text style={styles.txId}>{item.id}</Text>
         <Text style={styles.txDate}>{formatDate(item.createdAt)}</Text>
         <View style={styles.txMeta}>
-          <Text style={styles.txCashier}>👤 {item.cashierName}</Text>
+          <Text style={styles.txCashier}>Kasir: {item.cashierName}</Text>
           {item.customerName && (
-            <Text style={styles.txCustomer}>• 🏷 {item.customerName}</Text>
+            <Text style={styles.txCustomer}>• Member: {item.customerName}</Text>
           )}
           <Text style={styles.txPayment}>
             • {item.payments.map((p) => payMethodLabel(p.method)).join(' + ')}
@@ -132,7 +132,7 @@ export const TransactionHistoryScreen: React.FC<Props> = ({
           <View style={styles.modalFooter}>
             {hasPermission('pos.reprint') && (
               <Button
-                label="🖨 Cetak Ulang"
+                label="Cetak Ulang"
                 variant="secondary"
                 size="md"
                 onPress={() => { onReprintPress(selectedTx!.id); setSelectedTx(null); }}
@@ -141,7 +141,7 @@ export const TransactionHistoryScreen: React.FC<Props> = ({
             {hasPermission('return.create') &&
               selectedTx?.status === 'COMPLETED' || selectedTx?.status === 'SYNCED' ? (
               <Button
-                label="↩ Retur"
+                label="Retur"
                 variant="outline"
                 size="md"
                 onPress={() => { onReturnPress(selectedTx!.id); setSelectedTx(null); }}
@@ -166,7 +166,6 @@ export const TransactionHistoryScreen: React.FC<Props> = ({
       {/* Search & Filter */}
       <View style={styles.toolbar}>
         <View style={styles.searchWrap}>
-          <Text style={styles.searchIcon}>🔍</Text>
           <TextInput
             style={styles.searchInput}
             value={search}
@@ -203,7 +202,6 @@ export const TransactionHistoryScreen: React.FC<Props> = ({
       {/* List */}
       {filtered.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyEmoji}>🧾</Text>
           <Text style={styles.emptyTitle}>Tidak ada transaksi</Text>
           <Text style={styles.emptyDesc}>Coba ubah filter atau kata kunci pencarian.</Text>
         </View>

@@ -76,7 +76,7 @@ export const ReceiptScreen: React.FC<Props> = ({
 
           <View style={styles.actionRow}>
             <Button
-              label="🖨  Cetak Struk"
+              label="Cetak Struk"
               variant="secondary"
               size="lg"
               onPress={() => {/* Trigger print */}}

@@ -16,7 +16,7 @@ interface AuthState {
   hasPermission: (permission: string) => boolean;
 }
 
-export const useAuthStore = create<AuthState>((set, get) => ({
+export const useAuthStore = create<AuthState>()((set, get) => ({
   user: null,
   shift: null,
   isOnline: true,

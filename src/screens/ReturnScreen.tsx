@@ -157,7 +157,7 @@ export const ReturnScreen: React.FC<Props> = ({ onBack, initialTransactionId }) 
             {needsApproval && (
               <View style={styles.approvalBanner}>
                 <Text style={styles.approvalText}>
-                  ⚠️ Permintaan retur membutuhkan persetujuan manager.
+                  Catatan: Permintaan retur membutuhkan persetujuan manager.
                 </Text>
               </View>
             )}
@@ -262,7 +262,6 @@ export const ReturnScreen: React.FC<Props> = ({ onBack, initialTransactionId }) 
       {/* Search */}
       <View style={styles.searchBar}>
         <View style={styles.searchWrap}>
-          <Text>🔍</Text>
           <TextInput
             style={styles.searchInput}
             value={search}
@@ -287,7 +286,6 @@ export const ReturnScreen: React.FC<Props> = ({ onBack, initialTransactionId }) 
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Text style={styles.emptyEmoji}>↩</Text>
             <Text style={styles.emptyTitle}>Tidak ada transaksi</Text>
             <Text style={styles.emptyDesc}>Cari berdasarkan ID transaksi.</Text>
           </View>

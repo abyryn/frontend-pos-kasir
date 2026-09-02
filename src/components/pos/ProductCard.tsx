@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Colors, FontSize, FontWeight, Radius, Shadow, Spacing } from '../../theme';
 import { Product } from '../../types';
 
@@ -12,6 +12,7 @@ const formatPrice = (val: number) =>
   `Rp ${val.toLocaleString('id-ID')}`;
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onPress }) => {
+  const [imgError, setImgError] = useState(false);
   const isLowStock = product.stock > 0 && product.stock <= 10;
   const isOutOfStock = product.stock === 0;
 
@@ -32,11 +33,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onPress }) =>
         </View>
       )}
 
-      {/* Product icon placeholder */}
+      {/* Product Image */}
       <View style={[styles.imgBox, isOutOfStock && { opacity: 0.4 }]}>
-        <Text style={styles.imgEmoji}>
-          {getCategoryEmoji(product.category)}
-        </Text>
+        {product.imageUrl && !imgError ? (
+          <Image
+            source={{ uri: product.imageUrl }}
+            style={styles.productImg}
+            resizeMode="cover"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <View style={styles.fallbackBox}>
+            <Text style={styles.fallbackInitial}>{product.name.charAt(0).toUpperCase()}</Text>
+          </View>
+        )}
+        <View style={styles.categoryBadge}>
+          <Text style={styles.categoryText}>{product.category}</Text>
+        </View>
       </View>
 
       {/* Info */}
@@ -70,20 +83,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onPress }) =>
   );
 };
 
-function getCategoryEmoji(category: string): string {
-  const map: Record<string, string> = {
-    'Mie Instan': '🍜',
-    'Air Minum': '💧',
-    'Roti': '🍞',
-    'Minuman': '🥤',
-    'Snack': '🍿',
-    'Kopi': '☕',
-    'Kebersihan': '🧼',
-    'Daging': '🥩',
-  };
-  return map[category] ?? '📦';
-}
-
 const styles = StyleSheet.create({
   card: {
     backgroundColor: Colors.white,
@@ -102,6 +101,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 8,
     right: 8,
+    zIndex: 2,
     backgroundColor: Colors.warning,
     paddingVertical: 2,
     paddingHorizontal: 6,
@@ -115,15 +115,44 @@ const styles = StyleSheet.create({
   },
   imgBox: {
     width: '100%',
-    aspectRatio: 1,
+    aspectRatio: 1.2,
     backgroundColor: Colors.sky50,
     borderRadius: Radius.sm,
+    overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: Spacing.sm,
+    position: 'relative',
   },
-  imgEmoji: {
-    fontSize: 32,
+  productImg: {
+    width: '100%',
+    height: '100%',
+  },
+  fallbackBox: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.sky100,
+  },
+  fallbackInitial: {
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.sky700,
+  },
+  categoryBadge: {
+    position: 'absolute',
+    bottom: 4,
+    left: 4,
+    backgroundColor: 'rgba(15, 23, 42, 0.7)',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
+  categoryText: {
+    fontSize: 9,
+    color: Colors.white,
+    fontWeight: FontWeight.medium,
   },
   name: {
     fontSize: FontSize.bodySmall,
@@ -131,6 +160,7 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     marginBottom: 4,
     lineHeight: 18,
+    minHeight: 36,
   },
   price: {
     fontSize: FontSize.body,

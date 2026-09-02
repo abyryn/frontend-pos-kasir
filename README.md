@@ -8,13 +8,13 @@ Aplikasi Point of Sale (POS) berbasis **React Native + Expo** yang dibangun sesu
 
 | Library | Versi | Kegunaan |
 |---|---|---|
-| Expo | ~51 | Runtime & toolchain |
-| React Native | 0.74 | UI framework |
-| Zustand | ^4 | State management |
+| Expo | ~52 | Runtime & toolchain |
+| React Native | 0.76 | UI framework |
+| Zustand | ^5 | State management |
 | React Navigation | ^6 | Navigation |
-| Lucide React Native | ^0.378 | Icons |
+| Lucide React Native | ^0.475 | Icons |
 | AsyncStorage | 1.23 | Local persistence |
-| date-fns | ^3 | Date formatting |
+| date-fns | ^4 | Date formatting |
 
 ---
 
