@@ -25,7 +25,7 @@ Proyek ini dirancang, diarsiteki, dan dibangun secara kolaboratif oleh 3 spesial
 
 | Foto / Profil | Anggota Tim | Peran & Tanggung Jawab Utama |
 |:---:|:---|:---|
-| 👑 | **Abyan (Project Lead)**<br>`@abyryn` | **Team Leader • Frontend Lead • Desktop Developer**<br>• Menentukan visi teknis, roadmap, dan arsitektur modular sistem.<br>• Membangun antarmuka utama POS, logic state management (Zustand), dan arsitektur Desktop/Web client.<br>• Merancang sistem kasir cerdas: shift cash flow, hold/recall cart, dan dynamic approval flow. |
+| 👑 | **abirian (Project Lead)**<br>`@abyryn` | **Team Leader • Frontend Lead • Desktop Developer**<br>• Menentukan visi teknis, roadmap, dan arsitektur modular sistem.<br>• Membangun antarmuka utama POS, logic state management (Zustand), dan arsitektur Desktop/Web client.<br>• Merancang sistem kasir cerdas: shift cash flow, hold/recall cart, dan dynamic approval flow. |
 | 🧠 | **Dimas Apriliano** | **Backend Engineer • AI Engineer • DevOps**<br>• Mengembangkan arsitektur backend, REST/GraphQL microservices, dan database persistensi.<br>• Merancang integrasi kecerdasan buatan (AI engine) untuk prediksi penjualan pintar & rekomendasi produk.<br>• Mengelola automated CI/CD pipeline, containerization, deployment, dan reliabilitas server cloud. |
 | 📱 | **Grehista** | **Frontend Developer • Mobile App Specialist**<br>• Mengembangkan adaptasi POS untuk perangkat mobile dan tablet (Android & iOS).<br>• Mengoptimalkan touch gesture, responsivitas layout tablet/ponsel, dan mobile user experience.<br>• Melakukan quality assurance pada performa cross-platform di berbagai resolusi layar. |
 
@@ -59,7 +59,7 @@ Proyek ini dirancang, diarsiteki, dan dibangun secara kolaboratif oleh 3 spesial
 
 ```mermaid
 graph TD
-    A[Desktop / Web Client - Abyan] --> D[Core POS Frontend Engine]
+    A[Desktop / Web Client - abirian] --> D[Core POS Frontend Engine]
     B[Tablet / Mobile Client - Grehista] --> D
     D --> E[Zustand State Store & Local Storage]
     D --> F[REST API & Cloud Microservices - Dimas]
@@ -199,5 +199,5 @@ Gunakan akun demo berikut untuk menguji alur kerja kasir dan otorisasi manajer:
 
 ## 📜 Lisensi & Pengakuan
 
-Dikembangkan dengan penuh dedikasi oleh **Tim IDWEBHOST Hackathon 2026** (Abyan, Dimas Apriliano, Grehista).  
+Dikembangkan dengan penuh dedikasi oleh **Tim IDWEBHOST Hackathon 2026** (abirian, Dimas Apriliano, Grehista).  
 Hak cipta dilindungi undang-undang © 2026.
